@@ -1,5 +1,5 @@
 # watch_events: Example: create,move_to
-define dirwatcher::snippet(
+define dirwatcher::job(
   $ensure = 'present',
   $watch_directory,
   $watch_events,
@@ -9,11 +9,10 @@ define dirwatcher::snippet(
 ){
   if $ensure == 'present' {
     include ::dirwatcher
-  }
-  concat::fragment{$name:
-    ensure => $ensure,
-    content => template('dirwatcher/watcher_job.erb'),
-    order => 200,
-    target => "/etc/watcher.ini",
+    concat::fragment{$name:
+      content => template('dirwatcher/watcher_job.erb'),
+      order => 200,
+      target => "/etc/watcher.ini",
+    }
   }
 }
