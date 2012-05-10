@@ -5,7 +5,7 @@ define dirwatcher::job(
   $watch_events,
   $watch_command,
   $watch_recursive = true,
-  $watch_autoadd = true,
+  $watch_autoadd = true
 ){
   if $ensure == 'present' {
     include ::dirwatcher
