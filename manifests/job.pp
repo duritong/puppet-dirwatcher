@@ -9,7 +9,7 @@ define dirwatcher::job(
   include ::dirwatcher
   concat::fragment{$name:
     content => template('dirwatcher/watcher_job.erb'),
-    order => 200,
-    target => "/etc/watcher.ini",
+    order   => 200,
+    target  => '/etc/watcher.ini',
   }
 }
